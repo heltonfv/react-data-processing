@@ -20,14 +20,11 @@ import {
   FormControlLabel
 } from '@mui/material';
 import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
-import datasource1 from './datasource/datasource1.json';
-import datasource2 from './datasource/datasource2.json';
-import { ptBR } from '@mui/x-data-grid/locales';
 import { useState } from "react";
+import DynamicTable from './components/DynamicTable';
+import datasource1 from './datasource/datasource1.json';
 
 function App() {
-  const [ dataSource, setDatasource ] = useState(0);
-
   const datasources = [
     { "name": "datasource1.json", "title": "Fonte de dados 1" },
     { "name": "datasource2.json", "title": "Fonte de dados 2" },
@@ -37,7 +34,7 @@ function App() {
   ];
 
   const rows: GridRowsProp = datasource1;
-  
+      
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 15 },
     { field: 'nome', headerName: 'NOME', width: 150 },
@@ -48,10 +45,6 @@ function App() {
     { field: 'cor', headerName: 'COR', width: 150 },
     { field: 'fabricante', headerName: 'FABRICANTE', width: 150 }
   ];
-
-  const handleChange = (event: any) => {
-    console.log(event.target.value)
-  }
 
   return (
     <Stack direction="column" spacing={2} justifyContent={"center"}>
@@ -70,7 +63,7 @@ function App() {
               <Grid container spacing={1}>
                 <Grid item xs={12} md={4}>
                   <Select fullWidth label="Teste" size="small">
-                    <MenuItem>Teste</MenuItem>
+                      <MenuItem>Teste</MenuItem>
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -92,12 +85,7 @@ function App() {
             </Paper>
 
             <Paper sx={{padding: 1}} elevation={2} >
-              <DataGrid 
-                rows={rows}
-                columns={columns}
-                localeText={ptBR.components.MuiDataGrid.defaultProps.localeText}
-                pagination
-              />
+              <DynamicTable rows={rows} columns={columns} />
             </Paper>
 
           </Stack>
