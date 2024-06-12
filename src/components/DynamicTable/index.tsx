@@ -24,8 +24,6 @@ export default function DynamicTable({datasource}: any){
         };
     });
 
-    console.log(columns)
-
     return (
         <Box>
             <DataGrid 
