@@ -26,24 +26,11 @@ import datasource1 from './datasource/datasource1.json';
 
 function App() {
   const datasources = [
-    { "name": "datasource1.json", "title": "Fonte de dados 1" },
-    { "name": "datasource2.json", "title": "Fonte de dados 2" },
-    { "name": "datasource3.json", "title": "Fonte de dados 3" },
-    { "name": "datasource4.json", "title": "Fonte de dados 4" },
-    { "name": "datasource5.json", "title": "Fonte de dados 5" }
-  ];
-
-  const rows: GridRowsProp = datasource1;
-      
-  const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 15 },
-    { field: 'nome', headerName: 'NOME', width: 150 },
-    { field: 'categoria', headerName: 'CATEGORIA', width: 150 },
-    { field: 'quantidade', headerName: 'PREÇO', width: 150 },
-    { field: 'ano', headerName: 'ANO', width: 150 },
-    { field: 'mes', headerName: 'MÊS', width: 150 },
-    { field: 'cor', headerName: 'COR', width: 150 },
-    { field: 'fabricante', headerName: 'FABRICANTE', width: 150 }
+    { name: "datasource1.json", "title": "Fonte de dados 1" },
+    { name: "datasource2.json", "title": "Fonte de dados 2" },
+    { name: "datasource3.json", "title": "Fonte de dados 3" },
+    { name: "datasource4.json", "title": "Fonte de dados 4" },
+    { name: "datasource5.json", "title": "Fonte de dados 5" }
   ];
 
   return (
