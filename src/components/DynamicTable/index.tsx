@@ -10,10 +10,22 @@ import { iDatasource1Props } from './@types';
 import { ptBR } from '@mui/x-data-grid/locales';
 
 interface iDynamicTable {
-    rows: Array<iDatasource1Props>,
+    datasource: Array<iDatasource1Props>,
 }
 
-export default function DynamicTable({rows}: iDynamicTable){
+export default function DynamicTable({datasource}: any){
+    const keys = Object.keys(datasource[0]);
+
+    const rows: GridRowsProp = datasource;
+    const columns: GridColDef[] = keys.map(function(item, index){
+        return {
+            field: item,
+            headerName: item.toUpperCase()
+        };
+    });
+
+    console.log(columns)
+
     return (
         <Box>
             <DataGrid 

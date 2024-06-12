@@ -1,4 +1,4 @@
-export { iDatasource1Props }
+export type { iDatasource1Props }
 
 interface iDatasource1Props{
     id: number,
