@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "nome": "Alice",
+    "departamento": "Vendas",
+    "salario": 4500.00,
+    "anos_experiencia": 5,
+    "idade": 30,
+    "mes": 1,
+    "ano": 2023,
+    "cor": "Vermelho",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 2,
+    "nome": "Bob",
+    "departamento": "Vendas",
+    "salario": 4700.00,
+    "anos_experiencia": 6,
+    "idade": 32,
+    "mes": 2,
+    "ano": 2023,
+    "cor": "Azul",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 3,
+    "nome": "Carol",
+    "departamento": "TI",
+    "salario": 5500.75,
+    "anos_experiencia": 7,
+    "idade": 28,
+    "mes": 3,
+    "ano": 2022,
+    "cor": "Verde",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 4,
+    "nome": "David",
+    "departamento": "TI",
+    "salario": 5900.75,
+    "anos_experiencia": 8,
+    "idade": 35,
+    "mes": 4,
+    "ano": 2022,
+    "cor": "Vermelho",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 5,
+    "nome": "Eve",
+    "departamento": "Marketing",
+    "salario": 3900.50,
+    "anos_experiencia": 3,
+    "idade": 25,
+    "mes": 5,
+    "ano": 2023,
+    "cor": "Preto",
+    "fabricante": "Fabricante Z"
+  },
+  {
+    "id": 6,
+    "nome": "Frank",
+    "departamento": "Marketing",
+    "salario": 4200.50,
+    "anos_experiencia": 4,
+    "idade": 27,
+    "mes": 6,
+    "ano": 2023,
+    "cor": "Branco",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 7,
+    "nome": "Grace",
+    "departamento": "RH",
+    "salario": 5000.00,
+    "anos_experiencia": 5,
+    "idade": 29,
+    "mes": 7,
+    "ano": 2021,
+    "cor": "Cinza",
+    "fabricante": "Fabricante Z"
+  },
+  {
+    "id": 8,
+    "nome": "Hank",
+    "departamento": "RH",
+    "salario": 5200.00,
+    "anos_experiencia": 6,
+    "idade": 31,
+    "mes": 8,
+    "ano": 2021,
+    "cor": "Cinza",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 9,
+    "nome": "Ivy",
+    "departamento": "Administração",
+    "salario": 4300.45,
+    "anos_experiencia": 3,
+    "idade": 26,
+    "mes": 9,
+    "ano": 2022,
+    "cor": "Branco",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 10,
+    "nome": "Jack",
+    "departamento": "Administração",
+    "salario": 4500.70,
+    "anos_experiencia": 4,
+    "idade": 33,
+    "mes": 10,
+    "ano": 2022,
+    "cor": "Preto",
+    "fabricante": "Fabricante Z"
+  }
+]
