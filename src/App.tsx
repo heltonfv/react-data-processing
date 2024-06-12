@@ -17,7 +17,8 @@ import {
   Menu,
   Radio,
   RadioGroup,
-  FormControlLabel
+  FormControlLabel,
+  SelectChangeEvent
 } from '@mui/material';
 import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 import { useState } from "react";
@@ -33,9 +34,9 @@ function App() {
     { name: "datasource5.json", title: "Fonte de dados 5" }
   ];
   
-  const [ selected, setSelected ] = useState(0);
+  const [ selected, setSelected ] = useState('0');
 
-  const handleChange = (event:any) => {
+  const handleChange = (event:SelectChangeEvent) => {
     setSelected(event.target.value);
   }
 
