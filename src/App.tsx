@@ -52,7 +52,9 @@ function App() {
   }
 
   const handleSumFieldChange = (event: SelectChangeEvent) => {
+    const filtered = data.map(dat => ({id: dat.id}));
     setSelectedSumField(event.target.value);
+    setData(filtered);
   }
 
   const handleDetailFieldChange = (event: SelectChangeEvent) => {
