@@ -38,8 +38,12 @@ function App() {
   const [ detailFields, setDetailFields ] = useState<string[]>();
   const [ type, setType ] = useState("table");
 
-  const handleChange = (event:SelectChangeEvent) => {
+  const handleDatasourceChange = (event:SelectChangeEvent) => {
     setSelected(event.target.value);
+  }
+
+  const handleTypeChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+    setType(event.target.value);
   }
 
   useEffect(() => {
@@ -71,7 +75,7 @@ function App() {
             <Paper sx={{padding: 1}} elevation={1}>
               <Grid container spacing={1}>
                 <Grid item xs={12} md={4}>
-                  <Select onChange={handleChange} value={selected} fullWidth label="Teste" size="small">
+                  <Select onChange={handleDatasourceChange} value={selected} fullWidth label="Teste" size="small">
                     {datasources.map((item) => (
                       <MenuItem value={item.name}>{item.title}</MenuItem>
                     ))}
@@ -93,7 +97,7 @@ function App() {
                 </Grid>
               </Grid>
 
-              <RadioGroup row value={type}>
+              <RadioGroup row value={type} onChange={handleTypeChange}>
                 <FormControlLabel value="table" control={<Radio />} label="Tabela" />
                 <FormControlLabel value="graph" control={<Radio />} label="Gráfico" />
               </RadioGroup>
