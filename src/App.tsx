@@ -20,10 +20,8 @@ import {
   FormControlLabel,
   SelectChangeEvent
 } from '@mui/material';
-import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DynamicTable from './components/DynamicTable';
-import datasource1 from './datasource/datasource1.json';
 
 function App() {
   const datasources = [
@@ -34,11 +32,21 @@ function App() {
     { name: "datasource5.json", title: "Fonte de dados 5" }
   ];
   
-  const [ selected, setSelected ] = useState('0');
+  const [ selected, setSelected ] = useState('datasource1.json');
+  const [ data, setData ] = useState([{id: 0}]);
 
   const handleChange = (event:SelectChangeEvent) => {
     setSelected(event.target.value);
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`datasource/${selected}`);
+      const result = await response.json();
+      setData(result);
+    };
+    fetchData();
+  }, [selected]);
 
   return (
     <Stack direction="column" spacing={2} justifyContent={"center"}>
@@ -57,8 +65,8 @@ function App() {
               <Grid container spacing={1}>
                 <Grid item xs={12} md={4}>
                   <Select onChange={handleChange} value={selected} fullWidth label="Teste" size="small">
-                    {datasources.map((item, index) => (
-                      <MenuItem value={index}>{item.title}</MenuItem>
+                    {datasources.map((item) => (
+                      <MenuItem value={item.name}>{item.title}</MenuItem>
                     ))}
                   </Select>
                 </Grid>
@@ -71,7 +79,7 @@ function App() {
             </Paper>
 
             <Paper sx={{padding: 1}} elevation={2} >
-              <DynamicTable datasource={datasource1} />
+              <DynamicTable datasource={data} />
             </Paper>
 
           </Stack>
