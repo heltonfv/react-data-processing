@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "nome": "Projeto A",
+    "departamento": "Desenvolvimento",
+    "orcamento": 15000.00,
+    "duracao_meses": 12,
+    "ano_inicio": 2022,
+    "mes_inicio": 1,
+    "cor": "Vermelho",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 2,
+    "nome": "Projeto B",
+    "departamento": "Desenvolvimento",
+    "orcamento": 18000.00,
+    "duracao_meses": 14,
+    "ano_inicio": 2023,
+    "mes_inicio": 2,
+    "cor": "Azul",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 3,
+    "nome": "Projeto C",
+    "departamento": "Pesquisa",
+    "orcamento": 20000.00,
+    "duracao_meses": 16,
+    "ano_inicio": 2021,
+    "mes_inicio": 3,
+    "cor": "Verde",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 4,
+    "nome": "Projeto D",
+    "departamento": "Pesquisa",
+    "orcamento": 22000.00,
+    "duracao_meses": 18,
+    "ano_inicio": 2022,
+    "mes_inicio": 4,
+    "cor": "Vermelho",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 5,
+    "nome": "Projeto E",
+    "departamento": "TI",
+    "orcamento": 12000.00,
+    "duracao_meses": 10,
+    "ano_inicio": 2023,
+    "mes_inicio": 5,
+    "cor": "Preto",
+    "fabricante": "Fabricante Z"
+  },
+  {
+    "id": 6,
+    "nome": "Projeto F",
+    "departamento": "TI",
+    "orcamento": 14000.00,
+    "duracao_meses": 12,
+    "ano_inicio": 2023,
+    "mes_inicio": 6,
+    "cor": "Branco",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 7,
+    "nome": "Projeto G",
+    "departamento": "Marketing",
+    "orcamento": 16000.00,
+    "duracao_meses": 14,
+    "ano_inicio": 2021,
+    "mes_inicio": 7,
+    "cor": "Cinza",
+    "fabricante": "Fabricante Z"
+  },
+  {
+    "id": 8,
+    "nome": "Projeto H",
+    "departamento": "Marketing",
+    "orcamento": 18000.00,
+    "duracao_meses": 16,
+    "ano_inicio": 2021,
+    "mes_inicio": 8,
+    "cor": "Cinza",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 9,
+    "nome": "Projeto I",
+    "departamento": "RH",
+    "orcamento": 10000.00,
+    "duracao_meses": 8,
+    "ano_inicio": 2022,
+    "mes_inicio": 9,
+    "cor": "Branco",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 10,
+    "nome": "Projeto J",
+    "departamento": "RH",
+    "orcamento": 12000.00,
+    "duracao_meses": 10,
+    "ano_inicio": 2022,
+    "mes_inicio": 10,
+    "cor": "Preto",
+    "fabricante": "Fabricante Z"
+  }
+]

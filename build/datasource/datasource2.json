@@ -1,0 +1,122 @@
+[
+  {
+    "id": 101,
+    "data": "2024-06-01",
+    "cliente": "Cliente A",
+    "valor_total": 299.99,
+    "itens": 5,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Eletrônicos",
+    "cor": "Vermelho",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 102,
+    "data": "2024-06-02",
+    "cliente": "Cliente B",
+    "valor_total": 199.99,
+    "itens": 3,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Eletrônicos",
+    "cor": "Azul",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 103,
+    "data": "2024-06-03",
+    "cliente": "Cliente C",
+    "valor_total": 159.75,
+    "itens": 2,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Móveis",
+    "cor": "Verde",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 104,
+    "data": "2024-06-04",
+    "cliente": "Cliente D",
+    "valor_total": 189.99,
+    "itens": 4,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Móveis",
+    "cor": "Vermelho",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 105,
+    "data": "2024-06-05",
+    "cliente": "Cliente E",
+    "valor_total": 49.99,
+    "itens": 1,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Roupas",
+    "cor": "Preto",
+    "fabricante": "Fabricante Z"
+  },
+  {
+    "id": 106,
+    "data": "2024-06-06",
+    "cliente": "Cliente F",
+    "valor_total": 59.99,
+    "itens": 2,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Roupas",
+    "cor": "Branco",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 107,
+    "data": "2024-06-07",
+    "cliente": "Cliente G",
+    "valor_total": 24.50,
+    "itens": 1,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Livros",
+    "cor": "Cinza",
+    "fabricante": "Fabricante Z"
+  },
+  {
+    "id": 108,
+    "data": "2024-06-08",
+    "cliente": "Cliente H",
+    "valor_total": 29.99,
+    "itens": 3,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Livros",
+    "cor": "Cinza",
+    "fabricante": "Fabricante Y"
+  },
+  {
+    "id": 109,
+    "data": "2024-06-09",
+    "cliente": "Cliente I",
+    "valor_total": 19.99,
+    "itens": 1,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Beleza",
+    "cor": "Branco",
+    "fabricante": "Fabricante X"
+  },
+  {
+    "id": 110,
+    "data": "2024-06-10",
+    "cliente": "Cliente J",
+    "valor_total": 25.99,
+    "itens": 2,
+    "mes": 6,
+    "ano": 2024,
+    "categoria": "Beleza",
+    "cor": "Preto",
+    "fabricante": "Fabricante Z"
+  }
+]
