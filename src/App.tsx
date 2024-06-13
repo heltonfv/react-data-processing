@@ -38,16 +38,27 @@ function App() {
   const [ data, setData ] = useState([{id: 0}]);
 
   const [ sumField, setSumField ] = useState<string[]>();
-  const [ selectedSumField, setSelectedSumField ] = useState<string>();
+  const [ selectedSumField, setSelectedSumField ] = useState<string>('');
 
   const [ detailField, setDetailField ] = useState<string[]>();
-  const [ selectedDetailField, setSelectedDetailField ] = useState<string>();
+  const [ selectedDetailField, setSelectedDetailField ] = useState<string>('');
 
   const [ type, setType ] = useState("table");
 
-  const handleDatasourceChange = (event:SelectChangeEvent) => {
+  const handleDatasourceFieldChange = (event:SelectChangeEvent) => {
     setSelected(event.target.value);
+    setSelectedSumField('');
+    setSelectedDetailField('');
   }
+
+  const handleSumFieldChange = (event: SelectChangeEvent) => {
+    setSelectedSumField(event.target.value);
+  }
+
+  const handleDetailFieldChange = (event: SelectChangeEvent) => {
+    setSelectedDetailField(event.target.value);
+  }
+
 
   const handleTypeChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     setType(event.target.value);
@@ -84,21 +95,21 @@ function App() {
             <Paper sx={{padding: 1}} elevation={1}>
               <Grid container spacing={1}>
                 <Grid item xs={12} md={4}>
-                  <Select onChange={handleDatasourceChange} value={selected} fullWidth label="Teste" size="small">
+                  <Select onChange={handleDatasourceFieldChange} value={selected} fullWidth label="Teste" size="small">
                     {datasources.map((item) => (
                       <MenuItem value={item.name}>{item.title}</MenuItem>
                     ))}
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Select value={selectedSumField} fullWidth label="Teste" size="small">
+                  <Select onChange={handleSumFieldChange} value={selectedSumField} fullWidth label="Teste" size="small">
                     {sumField?.map((item) => (
                       <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
                     ))}
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Select value={selectedDetailField} fullWidth label="Teste" size="small">
+                  <Select onChange={handleDetailFieldChange} value={selectedDetailField} fullWidth label="Teste" size="small">
                     {detailField?.map((item) => (
                       <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
                     ))}
