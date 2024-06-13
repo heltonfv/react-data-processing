@@ -22,6 +22,7 @@ import {
 } from '@mui/material';
 import { useState, useEffect } from "react";
 import DynamicTable from './components/DynamicTable';
+import { FaD, FaDatabase } from "react-icons/fa6";
 
 function App() {
   const datasources = [
@@ -63,7 +64,8 @@ function App() {
     <Stack direction="column" spacing={2} justifyContent={"center"}>
       <AppBar position="static">
         <Toolbar>
-          <Typography><h3>LacLaw Project</h3></Typography>
+          <FaDatabase size={25} />
+          <Typography variant="h6" mt={1}>LacLaw Project</Typography>
         </Toolbar>
       </AppBar>
       <Grid 
