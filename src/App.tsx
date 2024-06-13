@@ -38,10 +38,10 @@ function App() {
   const [ data, setData ] = useState([{id: 0}]);
 
   const [ sumField, setSumField ] = useState<string[]>();
-  const [ selectedSumField, setSelectedSumField ] = useState<string[]>();
+  const [ selectedSumField, setSelectedSumField ] = useState<string>();
 
   const [ detailField, setDetailField ] = useState<string[]>();
-  const [ selectedDetailField, setSelectedDetailField ] = useState<string[]>();
+  const [ selectedDetailField, setSelectedDetailField ] = useState<string>();
 
   const [ type, setType ] = useState("table");
 
@@ -92,15 +92,15 @@ function App() {
                 </Grid>
                 <Grid item xs={12} md={4}>
                   <Select value={selectedSumField} fullWidth label="Teste" size="small">
-                    {sumField?.map((item, index) => (
-                      <MenuItem value={index}>{item.toUpperCase()}</MenuItem>
+                    {sumField?.map((item) => (
+                      <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
                     ))}
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={4}>
                   <Select value={selectedDetailField} fullWidth label="Teste" size="small">
-                    {detailField?.map((item, index) => (
-                      <MenuItem value={index}>{item.toUpperCase()}</MenuItem>
+                    {detailField?.map((item) => (
+                      <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
                     ))}
                   </Select>
                 </Grid>
