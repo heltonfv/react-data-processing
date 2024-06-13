@@ -17,50 +17,60 @@ import {
   Menu,
   Radio,
   RadioGroup,
-  FormControlLabel
+  FormControlLabel,
+  SelectChangeEvent
 } from '@mui/material';
-import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
-import datasource1 from './datasource/datasource1.json';
-import datasource2 from './datasource/datasource2.json';
-import { ptBR } from '@mui/x-data-grid/locales';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import DynamicTable from './components/DynamicTable';
+import { FaD, FaDatabase } from "react-icons/fa6";
+import Chart from './components/Chart';
 
 function App() {
-  const [ dataSource, setDatasource ] = useState(0);
-
   const datasources = [
-    { "name": "datasource1.json", "title": "Fonte de dados 1" },
-    { "name": "datasource2.json", "title": "Fonte de dados 2" },
-    { "name": "datasource3.json", "title": "Fonte de dados 3" },
-    { "name": "datasource4.json", "title": "Fonte de dados 4" },
-    { "name": "datasource5.json", "title": "Fonte de dados 5" }
+    { name: "datasource1.json", title: "Fonte de dados 1" },
+    { name: "datasource2.json", title: "Fonte de dados 2" },
+    { name: "datasource3.json", title: "Fonte de dados 3" },
+    { name: "datasource4.json", title: "Fonte de dados 4" },
+    { name: "datasource5.json", title: "Fonte de dados 5" }
   ];
-
-  const rows: GridRowsProp = datasource1;
   
-  const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 15 },
-    { field: 'nome', headerName: 'NOME', width: 150 },
-    { field: 'categoria', headerName: 'CATEGORIA', width: 150 },
-    { field: 'quantidade', headerName: 'PREÇO', width: 150 },
-    { field: 'ano', headerName: 'ANO', width: 150 },
-    { field: 'mes', headerName: 'MÊS', width: 150 },
-    { field: 'cor', headerName: 'COR', width: 150 },
-    { field: 'fabricante', headerName: 'FABRICANTE', width: 150 }
-  ];
+  const [ selected, setSelected ] = useState('datasource1.json');
+  const [ data, setData ] = useState([{id: 0}]);
+  const [ sumFields, setSumFields ] = useState<string[]>();
+  const [ detailFields, setDetailFields ] = useState<string[]>();
+  const [ type, setType ] = useState("table");
 
-  const handleChange = (event: any) => {
-    console.log(event.target.value)
+  const handleDatasourceChange = (event:SelectChangeEvent) => {
+    setSelected(event.target.value);
   }
+
+  const handleTypeChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+    setType(event.target.value);
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`datasource/${selected}`);
+      const result = await response.json();
+      const fields = Object.keys(result[0]);
+
+      setData(result);
+      setSumFields(fields);
+      setDetailFields(fields);
+    };
+    fetchData();
+  }, [selected]);
 
   return (
     <Stack direction="column" spacing={2} justifyContent={"center"}>
       <AppBar position="static">
         <Toolbar>
+          <FaDatabase size={25} />
+          <Typography variant="h6" mt={1}>LacLaw Project</Typography>
         </Toolbar>
       </AppBar>
       <Grid 
-        container
+        container 
         justifyContent={"center"}
         alignItems={"center"}
         >
@@ -69,35 +79,37 @@ function App() {
             <Paper sx={{padding: 1}} elevation={1}>
               <Grid container spacing={1}>
                 <Grid item xs={12} md={4}>
-                  <Select fullWidth label="Teste" size="small">
-                    <MenuItem>Teste</MenuItem>
+                  <Select onChange={handleDatasourceChange} value={selected} fullWidth label="Teste" size="small">
+                    {datasources.map((item) => (
+                      <MenuItem value={item.name}>{item.title}</MenuItem>
+                    ))}
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={4}>
                   <Select fullWidth label="Teste" size="small">
-                    <MenuItem>Teste</MenuItem>
+                    {sumFields?.map((item, index) => (
+                      <MenuItem value={index}>{item.toUpperCase()}</MenuItem>
+                    ))}
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={4}>
                   <Select fullWidth label="Teste" size="small">
-                    <MenuItem>Teste</MenuItem>
+                    {detailFields?.map((item, index) => (
+                      <MenuItem value={index}>{item.toUpperCase()}</MenuItem>
+                    ))}
                   </Select>
                 </Grid>
               </Grid>
 
-              <RadioGroup row>
+              <RadioGroup row value={type} onChange={handleTypeChange}>
                 <FormControlLabel value="table" control={<Radio />} label="Tabela" />
                 <FormControlLabel value="graph" control={<Radio />} label="Gráfico" />
               </RadioGroup>
             </Paper>
 
             <Paper sx={{padding: 1}} elevation={2} >
-              <DataGrid 
-                rows={rows}
-                columns={columns}
-                localeText={ptBR.components.MuiDataGrid.defaultProps.localeText}
-                pagination
-              />
+              {type === 'table' && <DynamicTable datasource={data} />}
+              {type === 'graph' && <Chart/>}
             </Paper>
 
           </Stack>
