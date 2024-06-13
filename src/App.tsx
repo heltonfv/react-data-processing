@@ -36,8 +36,13 @@ function App() {
   
   const [ selected, setSelected ] = useState('datasource1.json');
   const [ data, setData ] = useState([{id: 0}]);
-  const [ sumFields, setSumFields ] = useState<string[]>();
-  const [ detailFields, setDetailFields ] = useState<string[]>();
+
+  const [ sumField, setSumField ] = useState<string[]>();
+  const [ selectedSumField, setSelectedSumField ] = useState<string[]>();
+
+  const [ detailField, setDetailField ] = useState<string[]>();
+  const [ selectedDetailField, setSelectedDetailField ] = useState<string[]>();
+
   const [ type, setType ] = useState("table");
 
   const handleDatasourceChange = (event:SelectChangeEvent) => {
@@ -55,8 +60,8 @@ function App() {
       const fields = Object.keys(result[0]);
 
       setData(result);
-      setSumFields(fields);
-      setDetailFields(fields);
+      setSumField(fields);
+      setDetailField(fields);
     };
     fetchData();
   }, [selected]);
@@ -86,15 +91,15 @@ function App() {
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Select fullWidth label="Teste" size="small">
-                    {sumFields?.map((item, index) => (
+                  <Select value={selectedSumField} fullWidth label="Teste" size="small">
+                    {sumField?.map((item, index) => (
                       <MenuItem value={index}>{item.toUpperCase()}</MenuItem>
                     ))}
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Select fullWidth label="Teste" size="small">
-                    {detailFields?.map((item, index) => (
+                  <Select value={selectedDetailField} fullWidth label="Teste" size="small">
+                    {detailField?.map((item, index) => (
                       <MenuItem value={index}>{item.toUpperCase()}</MenuItem>
                     ))}
                   </Select>
