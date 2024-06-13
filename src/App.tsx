@@ -23,6 +23,7 @@ import {
 import { useState, useEffect } from "react";
 import DynamicTable from './components/DynamicTable';
 import { FaD, FaDatabase } from "react-icons/fa6";
+import Chart from './components/Chart';
 
 function App() {
   const datasources = [
@@ -108,6 +109,7 @@ function App() {
 
             <Paper sx={{padding: 1}} elevation={2} >
               {type === 'table' && <DynamicTable datasource={data} />}
+              {type === 'graph' && <Chart/>}
             </Paper>
 
           </Stack>
