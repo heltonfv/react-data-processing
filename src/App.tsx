@@ -63,10 +63,11 @@ function App() {
     <Stack direction="column" spacing={2} justifyContent={"center"}>
       <AppBar position="static">
         <Toolbar>
+          <Typography><h3>LacLaw Project</h3></Typography>
         </Toolbar>
       </AppBar>
       <Grid 
-        container
+        container 
         justifyContent={"center"}
         alignItems={"center"}
         >
