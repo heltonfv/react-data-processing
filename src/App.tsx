@@ -104,7 +104,7 @@ function App() {
             </Paper>
 
             <Paper sx={{padding: 1}} elevation={2} >
-              <DynamicTable datasource={data} />
+              {type === 'table' && <DynamicTable datasource={data} />}
             </Paper>
 
           </Stack>
