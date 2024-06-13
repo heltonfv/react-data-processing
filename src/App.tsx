@@ -95,25 +95,34 @@ function App() {
             <Paper sx={{padding: 1}} elevation={1}>
               <Grid container spacing={1}>
                 <Grid item xs={12} md={4}>
-                  <Select onChange={handleDatasourceFieldChange} value={selected} fullWidth label="Teste" size="small">
-                    {datasources.map((item) => (
-                      <MenuItem value={item.name}>{item.title}</MenuItem>
-                    ))}
-                  </Select>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Datasource</InputLabel>
+                    <Select onChange={handleDatasourceFieldChange} value={selected} fullWidth label="Datasource" size="small">
+                      {datasources.map((item) => (
+                        <MenuItem value={item.name}>{item.title}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Select onChange={handleSumFieldChange} value={selectedSumField} fullWidth label="Teste" size="small">
-                    {sumField?.map((item) => (
-                      <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
-                    ))}
-                  </Select>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Somar</InputLabel>
+                    <Select onChange={handleSumFieldChange} value={selectedSumField} fullWidth label="Somar" size="small">
+                      {sumField?.map((item) => (
+                        <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Select onChange={handleDetailFieldChange} value={selectedDetailField} fullWidth label="Teste" size="small">
-                    {detailField?.map((item) => (
-                      <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
-                    ))}
-                  </Select>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Detalhar por</InputLabel>
+                    <Select onChange={handleDetailFieldChange} value={selectedDetailField} fullWidth label="Detalhar por" size="small">
+                      {detailField?.map((item) => (
+                        <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
                 </Grid>
               </Grid>
 
