@@ -36,6 +36,7 @@ function App() {
   const [ data, setData ] = useState([{id: 0}]);
   const [ sumFields, setSumFields ] = useState<string[]>();
   const [ detailFields, setDetailFields ] = useState<string[]>();
+  const [ type, setType ] = useState("table");
 
   const handleChange = (event:SelectChangeEvent) => {
     setSelected(event.target.value);
@@ -92,7 +93,7 @@ function App() {
                 </Grid>
               </Grid>
 
-              <RadioGroup row>
+              <RadioGroup row value={type}>
                 <FormControlLabel value="table" control={<Radio />} label="Tabela" />
                 <FormControlLabel value="graph" control={<Radio />} label="Gráfico" />
               </RadioGroup>
