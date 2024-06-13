@@ -31,6 +31,7 @@ export default function DynamicTable({datasource}: any){
                 columns={columns}
                 localeText={ptBR.components.MuiDataGrid.defaultProps.localeText}
                 pagination
+                density="compact"
             />
       </Box>
     )
