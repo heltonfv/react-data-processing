@@ -166,7 +166,7 @@ function App() {
 
             <Paper sx={{padding: 1}} elevation={2} >
               {type === 'table' && <DynamicTable datasource={filteredData} />}
-              {type === 'graph' && <Chart/>}
+              {type === 'graph' && <Chart datasource={filteredData} />}
             </Paper>
 
           </Stack>
