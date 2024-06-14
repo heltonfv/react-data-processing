@@ -36,6 +36,7 @@ function App() {
   
   const [ selected, setSelected ] = useState('datasource1.json');
   const [ data, setData ] = useState([{id: 0}]);
+  const [ filteredData, setFilteredData ] = useState([{id: 0}]);
 
   const [ sumField, setSumField ] = useState<string[]>();
   const [ selectedSumField, setSelectedSumField ] = useState<string>('');
@@ -52,9 +53,15 @@ function App() {
   }
 
   const handleSumFieldChange = (event: SelectChangeEvent) => {
-    const filtered = data.map(dat => ({id: dat.id}));
+    const column = event.target.value;
+    const filtered = data.map(function(item, index){
+      return {
+        id: item.id,
+        [column]: item[column as keyof typeof item]
+      };
+    });
     setSelectedSumField(event.target.value);
-    setData(filtered);
+    setFilteredData(filtered);  
   }
 
   const handleDetailFieldChange = (event: SelectChangeEvent) => {
@@ -73,6 +80,7 @@ function App() {
       const fields = Object.keys(result[0]);
 
       setData(result);
+      setFilteredData(result);
       setSumField(fields);
       setDetailField(fields);
     };
@@ -135,7 +143,7 @@ function App() {
             </Paper>
 
             <Paper sx={{padding: 1}} elevation={2} >
-              {type === 'table' && <DynamicTable datasource={data} />}
+              {type === 'table' && <DynamicTable datasource={filteredData} />}
               {type === 'graph' && <Chart/>}
             </Paper>
 
