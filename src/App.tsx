@@ -41,6 +41,9 @@ function App() {
   const [ sumField, setSumField ] = useState<string[]>();
   const [ selectedSumField, setSelectedSumField ] = useState<string>('');
 
+  const [ viewByField, setViewByField ] = useState<string[]>();
+  const [ selectedViewByField, setSelectedViewByField ] = useState<string>('');
+
   const [ detailField, setDetailField ] = useState<string[]>();
   const [ selectedDetailField, setSelectedDetailField ] = useState<string>('');
 
@@ -64,6 +67,10 @@ function App() {
     setFilteredData(filtered);  
   }
 
+  const handleViewByFieldChange = (event:SelectChangeEvent) => {
+    setSelectedViewByField(event.target.value);
+  }
+
   const handleDetailFieldChange = (event: SelectChangeEvent) => {
     setSelectedDetailField(event.target.value);
   }
@@ -82,6 +89,7 @@ function App() {
       setData(result);
       setFilteredData(result);
       setSumField(fields);
+      setViewByField(fields);
       setDetailField(fields);
     };
     fetchData();
@@ -127,8 +135,8 @@ function App() {
                 <Grid item xs={12} md={3}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Visualizar por</InputLabel>
-                    <Select onChange={handleSumFieldChange} value={selectedSumField} fullWidth label="Visualizar por" size="small">
-                      {sumField?.map((item) => (
+                    <Select onChange={handleViewByFieldChange} value={selectedViewByField} fullWidth label="Visualizar por" size="small">
+                      {viewByField?.map((item) => (
                         <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
                       ))}
                     </Select>
