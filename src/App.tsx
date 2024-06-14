@@ -22,7 +22,7 @@ import {
 } from '@mui/material';
 import { useState, useEffect } from "react";
 import DynamicTable from './components/DynamicTable';
-import { FaD, FaDatabase } from "react-icons/fa6";
+import { FaDatabase } from "react-icons/fa6";
 import Chart from './components/Chart';
 import _ from 'lodash';
 
@@ -44,9 +44,11 @@ function App() {
 
   const [ viewByField, setViewByField ] = useState<string[]>();
   const [ selectedViewByField, setSelectedViewByField ] = useState<string>('');
+  const [ disabledViewByField, setDisabledViewByField ] = useState<boolean>(true);
 
   const [ detailField, setDetailField ] = useState<string[]>();
   const [ selectedDetailField, setSelectedDetailField ] = useState<string>('');
+  const [ disabledDetailField, setDisabledDetailField ] = useState<boolean>(true);
 
   const [ type, setType ] = useState("table");
 
@@ -57,7 +59,8 @@ function App() {
   }
 
   const handleSumFieldChange = (event: SelectChangeEvent) => {
-    setSelectedSumField(event.target.value); 
+    setSelectedSumField(event.target.value);
+    setDisabledViewByField(false);
   }
 
   const handleViewByFieldChange = (event:SelectChangeEvent) => {
@@ -73,6 +76,7 @@ function App() {
     });
 
     setFilteredData(sumByGroup);
+    setDisabledDetailField(false);
   }
 
   const handleDetailFieldChange = (event: SelectChangeEvent) => {
@@ -139,7 +143,7 @@ function App() {
                 <Grid item xs={12} md={3}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Visualizar por</InputLabel>
-                    <Select onChange={handleViewByFieldChange} value={selectedViewByField} fullWidth label="Visualizar por" size="small">
+                    <Select disabled={disabledViewByField} onChange={handleViewByFieldChange} value={selectedViewByField} fullWidth label="Visualizar por" size="small">
                       {viewByField?.map((item) => (
                         <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
                       ))}
@@ -149,7 +153,7 @@ function App() {
                 <Grid item xs={12} md={3}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Detalhar por</InputLabel>
-                    <Select onChange={handleDetailFieldChange} value={selectedDetailField} fullWidth label="Detalhar por" size="small">
+                    <Select disabled={disabledDetailField} onChange={handleDetailFieldChange} value={selectedDetailField} fullWidth label="Detalhar por" size="small">
                       {detailField?.map((item) => (
                         <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
                       ))}
@@ -159,8 +163,8 @@ function App() {
               </Grid>
 
               <RadioGroup row value={type} onChange={handleTypeChange}>
-                <FormControlLabel value="table" control={<Radio />} label="Tabela" />
-                <FormControlLabel value="graph" control={<Radio />} label="Gráfico" />
+                <FormControlLabel disabled={disabledDetailField} value="table" control={<Radio />} label="Tabela" />
+                <FormControlLabel disabled={disabledDetailField} value="graph" control={<Radio />} label="Gráfico" />
               </RadioGroup>
             </Paper>
 
