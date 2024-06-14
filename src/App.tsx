@@ -100,11 +100,11 @@ function App() {
         justifyContent={"center"}
         alignItems={"center"}
         >
-        <Grid item xs={11} md={6}>
+        <Grid item xs={11} md={8}>
           <Stack spacing={2}>
             <Paper sx={{padding: 1}} elevation={1}>
               <Grid container spacing={1}>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={3}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Datasource</InputLabel>
                     <Select onChange={handleDatasourceFieldChange} value={selected} fullWidth label="Datasource" size="small">
@@ -114,7 +114,7 @@ function App() {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={3}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Somar</InputLabel>
                     <Select onChange={handleSumFieldChange} value={selectedSumField} fullWidth label="Somar" size="small">
@@ -124,7 +124,17 @@ function App() {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={3}>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Visualizar por</InputLabel>
+                    <Select onChange={handleSumFieldChange} value={selectedSumField} fullWidth label="Visualizar por" size="small">
+                      {sumField?.map((item) => (
+                        <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} md={3}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Detalhar por</InputLabel>
                     <Select onChange={handleDetailFieldChange} value={selectedDetailField} fullWidth label="Detalhar por" size="small">
