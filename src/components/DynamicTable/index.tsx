@@ -8,6 +8,7 @@ import {
 } from '@mui/x-data-grid';
 import { iDatasource1Props } from './@types';
 import { ptBR } from '@mui/x-data-grid/locales';
+import { randomId } from "../../utils/randomId";
 
 interface iDynamicTable {
     datasource: Array<iDatasource1Props>,
@@ -32,6 +33,7 @@ export default function DynamicTable({datasource}: any){
                 localeText={ptBR.components.MuiDataGrid.defaultProps.localeText}
                 pagination
                 density="compact"
+                getRowId={() => randomId()}
             />
       </Box>
     )
