@@ -24,6 +24,7 @@ import { useState, useEffect } from "react";
 import DynamicTable from './components/DynamicTable';
 import { FaD, FaDatabase } from "react-icons/fa6";
 import Chart from './components/Chart';
+import _ from 'lodash';
 
 function App() {
   const datasources = [
@@ -36,7 +37,7 @@ function App() {
   
   const [ selected, setSelected ] = useState('datasource1.json');
   const [ data, setData ] = useState([{id: 0}]);
-  const [ filteredData, setFilteredData ] = useState([{id: 0}]);
+  const [ filteredData, setFilteredData ] = useState([{}]);
 
   const [ sumField, setSumField ] = useState<string[]>();
   const [ selectedSumField, setSelectedSumField ] = useState<string>('');
@@ -56,19 +57,22 @@ function App() {
   }
 
   const handleSumFieldChange = (event: SelectChangeEvent) => {
-    const column = event.target.value;
-    const filtered = data.map(function(item, index){
-      return {
-        id: item.id,
-        [column]: item[column as keyof typeof item]
-      };
-    });
-    setSelectedSumField(event.target.value);
-    setFilteredData(filtered);  
+    setSelectedSumField(event.target.value); 
   }
 
   const handleViewByFieldChange = (event:SelectChangeEvent) => {
     setSelectedViewByField(event.target.value);
+
+    const groups = _.groupBy(data, event.target.value as string);
+
+    const sumByGroup = _.map(groups, (itens, index) => {
+      return {
+        visualizacao: index as string,
+        soma: _.sumBy(itens, selectedSumField as string)
+      };
+    });
+
+    setFilteredData(sumByGroup);
   }
 
   const handleDetailFieldChange = (event: SelectChangeEvent) => {
