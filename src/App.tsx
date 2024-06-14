@@ -32,7 +32,10 @@ function App() {
     { name: "datasource2.json", title: "Fonte de dados 2" },
     { name: "datasource3.json", title: "Fonte de dados 3" },
     { name: "datasource4.json", title: "Fonte de dados 4" },
-    { name: "datasource5.json", title: "Fonte de dados 5" }
+    { name: "datasource5.json", title: "Fonte de dados 5" },
+    { name: "exemplo-2.json", title: "Exemplo 2" },
+    { name: "exemplo-3.json", title: "Exemplo 3" },
+    { name: "exemplo-4.json", title: "Exemplo 4" }
   ];
   
   const [ selected, setSelected ] = useState('datasource1.json');
@@ -81,6 +84,25 @@ function App() {
 
   const handleDetailFieldChange = (event: SelectChangeEvent) => {
     setSelectedDetailField(event.target.value);
+
+    const groupFirstDim = _.groupBy(_.groupBy(_.map(data, (itens, index) => {
+      console.log(index)
+      return {
+        // visualizacao: index as string,
+        // soma: _.sumBy(itens, selectedSumField as string)
+      }
+    }), event.target.value as string), selectedViewByField as string);
+
+    // const sumByGroup = _.map(groupFirstDim, (itens, index) => {
+    //   return {
+    //       visualizacao: index as string,
+    //       soma: _.sumBy(itens, selectedSumField as string)
+    //   };
+    // });
+        
+    console.log(groupFirstDim);
+
+    // setFilteredData(groupSecDim);
   }
 
 
