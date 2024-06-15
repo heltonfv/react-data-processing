@@ -85,22 +85,13 @@ function App() {
   const handleDetailFieldChange = (event: SelectChangeEvent) => {
     setSelectedDetailField(event.target.value);
 
-    const groupFirstDim = _.groupBy(_.groupBy(_.map(data, (itens, index) => {
-      console.log(index)
-      return {
-        // visualizacao: index as string,
-        // soma: _.sumBy(itens, selectedSumField as string)
-      }
-    }), event.target.value as string), selectedViewByField as string);
+    const groupFirstDim = _.groupBy(data, event.target.value as string);
 
-    // const sumByGroup = _.map(groupFirstDim, (itens, index) => {
-    //   return {
-    //       visualizacao: index as string,
-    //       soma: _.sumBy(itens, selectedSumField as string)
-    //   };
-    // });
-        
-    console.log(groupFirstDim);
+    const mapeando = _.map(groupFirstDim, (itens, index) => {
+      return {
+        [index]: _.groupBy(itens, selectedViewByField)
+      }
+    });
 
     // setFilteredData(groupSecDim);
   }
