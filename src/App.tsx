@@ -89,10 +89,16 @@ function App() {
 
     const category = _.map(year, (itens, index) => {
       const grouped = _.groupBy(itens, selectedViewByField);
-      return _.map(grouped, (iten, index) => {
-        return {index: _.sumBy(iten, selectedSumField as string)}
-      });      
+        return {
+          [index]: _.map(grouped, (iten, i) => {
+          return {
+            [i]: _.sumBy(iten, selectedSumField as string)
+          }
+        })
+      }      
     });
+
+    console.log(category)
 
     // setFilteredData(groupSecDim);
   }
