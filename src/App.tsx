@@ -85,12 +85,13 @@ function App() {
   const handleDetailFieldChange = (event: SelectChangeEvent) => {
     setSelectedDetailField(event.target.value);
 
-    const groupFirstDim = _.groupBy(data, event.target.value as string);
+    const year = _.groupBy(data, event.target.value as string);
 
-    const mapeando = _.map(groupFirstDim, (itens, index) => {
-      return {
-        [index]: _.groupBy(itens, selectedViewByField)
-      }
+    const category = _.map(year, (itens, index) => {
+      const grouped = _.groupBy(itens, selectedViewByField);
+      return _.map(grouped, (iten, index) => {
+        return {index: _.sumBy(iten, selectedSumField as string)}
+      });      
     });
 
     // setFilteredData(groupSecDim);
