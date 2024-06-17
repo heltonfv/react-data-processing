@@ -98,9 +98,27 @@ function App() {
       }      
     });
 
-    console.log(category)
+    let newJson:any = [];
 
-    // setFilteredData(groupSecDim);
+    const transformed = _.map(category, (itens, index) => {
+      // newJson.push({
+      //   ano: Object.keys(itens)[0]
+      // })
+
+      _.map(itens, (iten, inde) => {
+        _.map(iten, (ite, ind) => {
+          // ite.ano = Object.keys(itens)[0]
+          newJson.push(ite)
+        });
+      });
+
+    });
+
+    console.log(newJson)
+
+    // console.log(transformed)
+
+    setFilteredData(newJson);
   }
 
 
