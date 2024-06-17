@@ -99,15 +99,11 @@ function App() {
     });
 
     let newJson:any = [];
-
+    console.log(category)
     const transformed = _.map(category, (itens, index) => {
-      // newJson.push({
-      //   ano: Object.keys(itens)[0]
-      // })
-
       _.map(itens, (iten, inde) => {
         _.map(iten, (ite, ind) => {
-          // ite.ano = Object.keys(itens)[0]
+          ite.ano = Number(Object.keys(itens)[0])
           newJson.push(ite)
         });
       });
