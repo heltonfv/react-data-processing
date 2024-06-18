@@ -58,7 +58,10 @@ function App() {
   const handleDatasourceFieldChange = (event:SelectChangeEvent) => {
     setSelected(event.target.value);
     setSelectedSumField('');
+    setSelectedViewByField('');
     setSelectedDetailField('');
+    setDisabledViewByField(true);
+    setDisabledDetailField(true);
   }
 
   const handleSumFieldChange = (event: SelectChangeEvent) => {
