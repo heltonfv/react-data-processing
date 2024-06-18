@@ -98,21 +98,45 @@ function App() {
       }      
     });
 
-    let newJson:any = [];
-    console.log(category)
-    const transformed = _.map(category, (itens, index) => {
-      _.map(itens, (iten, inde) => {
-        _.map(iten, (ite, ind) => {
-          ite.ano = Number(Object.keys(itens)[0])
-          newJson.push(ite)
+    let columns:any = [];
+    let rows:any = [];
+
+    //get all rows
+    _.map(category, (itens, index) => {
+      rows.push(Object.keys(itens)[0])
+    })
+
+    //get all columns
+    const findLeaves = (category:any) => {
+      if (_.isObject(category)) {
+        _.forEach(category, (value, key) => {
+          if (_.isObject(value)) {
+            findLeaves(value);
+          } else {
+            columns.push(key);
+          }
+        });
+      }
+    };
+
+    findLeaves(category);
+
+    const newJson:any = [];
+
+    _.map(rows, (itens:any, index:any) => {
+      let newObj:any = {ano: itens }
+      _.map(columns, (iten:any, inde:any) => {
+        newObj[iten] = null;
+        _.map(columns, (ite: any, ind: any) => {
+          if(category[index]?.[itens]?.[ind]?.[iten]){
+            newObj[iten] = category[index]?.[itens]?.[ind]?.[iten];
+          }
         });
       });
-
+      newJson.push(newObj)
     });
-
+    
     console.log(newJson)
-
-    // console.log(transformed)
 
     setFilteredData(newJson);
   }
