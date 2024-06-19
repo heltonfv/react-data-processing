@@ -159,8 +159,8 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = fetchedData;
-      const result = response;
+      const response = await fetch(`datasource/${selected}`);
+      const result = await response.json();
       const fields = Object.keys(result[0]);
 
       setData(result);
