@@ -37,10 +37,6 @@ export default function Chart({datasource}: any){
 
     const options = {
         plugins: {
-          title: {
-            display: true,
-            text: 'Chart.js Bar Chart - Stacked',
-          },
         },
         responsive: true,
         scales: {
