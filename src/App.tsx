@@ -23,7 +23,8 @@ import {
 import { useState, useEffect } from "react";
 import DynamicTable from './components/DynamicTable';
 import { FaDatabase } from "react-icons/fa6";
-import Chart from './components/Chart';
+import StackedBarChart from './components/StackedBarChart';
+import BarChart from './components/BarChart';
 import _ from 'lodash';
 
 function App() {
@@ -54,6 +55,8 @@ function App() {
   const [ disabledDetailField, setDisabledDetailField ] = useState<boolean>(true);
 
   const [ type, setType ] = useState("table");
+
+  const [ dimension, setDimension ] = useState(false);
 
   const handleDatasourceFieldChange = (event:SelectChangeEvent) => {
     setSelected(event.target.value);
@@ -139,6 +142,7 @@ function App() {
       newJson.push(newObj)
     });
     
+    setDimension(true);
     setFilteredData(newJson);
   }
 
@@ -229,7 +233,8 @@ function App() {
 
             <Paper sx={{padding: 1}} elevation={2} >
               {type === 'table' && <DynamicTable datasource={filteredData} />}
-              {type === 'graph' && <Chart datasource={filteredData} />}
+              {type === 'graph' && <BarChart datasource={filteredData} dimension={dimension} />}
+              {/* {type === 'stackedBarChart' && <StackedBarChart datasource={filteredData} />} */}
             </Paper>
 
           </Stack>
