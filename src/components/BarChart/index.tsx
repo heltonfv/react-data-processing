@@ -22,7 +22,6 @@ ChartJS.register(
   );  
 
 export default function Chart({datasource, dimension}: any){
-  console.log(dimension)
     const options = {
         plugins: {
         },
