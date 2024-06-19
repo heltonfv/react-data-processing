@@ -149,6 +149,16 @@ function App() {
     setType(event.target.value);
   }
 
+  const clearAllFields = () => {
+    setSelectedSumField('');
+    setSelectedViewByField('');
+    setSelectedDetailField('');
+    setDisabledViewByField(true);
+    setDisabledDetailField(true);
+    setType('table');
+    setFilteredData(data);
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`datasource/${selected}`);
@@ -231,7 +241,7 @@ function App() {
                   </RadioGroup>
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: {xs: 'start', md: 'end'} }}>
-                  <Button size="small" variant="contained">
+                  <Button size="small" variant="contained" onClick={clearAllFields}>
                     Limpar
                   </Button>
                 </Grid>
