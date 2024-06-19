@@ -182,8 +182,8 @@ function App() {
               <Grid container spacing={1}>
                 <Grid item xs={12} md={3}>
                   <FormControl fullWidth size="small">
-                    <InputLabel>Datasource</InputLabel>
-                    <Select onChange={handleDatasourceFieldChange} value={selected} fullWidth label="Datasource" size="small">
+                    <InputLabel>Fonte de dados</InputLabel>
+                    <Select onChange={handleDatasourceFieldChange} value={selected} fullWidth label="Fonte de dados" size="small">
                       {datasources.map((item) => (
                         <MenuItem value={item.name}>{item.title}</MenuItem>
                       ))}
