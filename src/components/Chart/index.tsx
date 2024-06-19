@@ -26,6 +26,15 @@ ChartJS.register(
   );  
 
 export default function Chart({datasource}: any){
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
     const options = {
         plugins: {
           title: {
@@ -54,7 +63,8 @@ export default function Chart({datasource}: any){
             data: datasource.map((iten:any, inde:any) => {
                 return iten[itens]
             }),
-            label: itens
+            label: itens,
+            backgroundColor: getRandomColor()
         })
     });
 
