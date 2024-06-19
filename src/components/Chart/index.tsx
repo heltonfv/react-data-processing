@@ -47,6 +47,7 @@ export default function Chart({datasource}: any){
             stacked: true,
           },
         },
+        maintainAspectRatio : false
       };
 
     const labels = _.map(datasource, 'ano');
