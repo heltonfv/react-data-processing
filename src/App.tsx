@@ -29,14 +29,11 @@ import _ from 'lodash';
 
 function App() {
   const datasources = [
-    { name: "datasource1.json", title: "Fonte de dados 1" },
-    { name: "datasource2.json", title: "Fonte de dados 2" },
-    { name: "datasource3.json", title: "Fonte de dados 3" },
-    { name: "datasource4.json", title: "Fonte de dados 4" },
-    { name: "datasource5.json", title: "Fonte de dados 5" },
-    { name: "exemplo-2.json", title: "Exemplo 2" },
-    { name: "exemplo-3.json", title: "Exemplo 3" },
-    { name: "exemplo-4.json", title: "Exemplo 4" }
+    { name: "datasource1.json", title: "Produtos" },
+    { name: "datasource2.json", title: "Clientes" },
+    { name: "datasource3.json", title: "Funcionários" },
+    { name: "datasource4.json", title: "Projetos" },
+    { name: "datasource5.json", title: "Movimentações" }
   ];
   
   const [ selected, setSelected ] = useState('datasource1.json');
