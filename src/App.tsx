@@ -18,7 +18,8 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-  SelectChangeEvent
+  SelectChangeEvent,
+  Button
 } from '@mui/material';
 import { useState, useEffect } from "react";
 import DynamicTable from './components/DynamicTable';
@@ -222,10 +223,20 @@ function App() {
                 </Grid>
               </Grid>
 
-              <RadioGroup row value={type} onChange={handleTypeChange}>
-                <FormControlLabel disabled={disabledDetailField} value="table" control={<Radio />} label="Tabela" />
-                <FormControlLabel disabled={disabledDetailField} value="graph" control={<Radio />} label="Gráfico" />
-              </RadioGroup>
+              <Grid container>
+                <Grid item xs={12} md={6}>
+                  <RadioGroup row value={type} onChange={handleTypeChange}>
+                    <FormControlLabel disabled={disabledDetailField} value="table" control={<Radio />} label="Tabela" />
+                    <FormControlLabel disabled={disabledDetailField} value="graph" control={<Radio />} label="Gráfico" />
+                  </RadioGroup>
+                </Grid>
+                <Grid item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: {xs: 'start', md: 'end'} }}>
+                  <Button size="small" variant="contained">
+                    Limpar
+                  </Button>
+                </Grid>
+              </Grid>
+
             </Paper>
 
             <Paper sx={{padding: 1}} elevation={2} >
