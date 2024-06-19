@@ -139,8 +139,6 @@ function App() {
       newJson.push(newObj)
     });
     
-    console.log(newJson)
-
     setFilteredData(newJson);
   }
 
