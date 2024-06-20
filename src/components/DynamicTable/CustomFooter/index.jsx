@@ -1,6 +1,8 @@
-import { Box, Stack, Typography } from "@mui/material"
+import { Box, Stack, Grid, Typography } from "@mui/material"
 
 export function CustomFooter({total}){
+    console.log("total")
+    console.log(total)
     return (
         <Box
             display="flex"
@@ -11,11 +13,16 @@ export function CustomFooter({total}){
             justifyContent="space-between"
         >
 
-            <Stack alignItems="center" justifyContent="space-between" direction="row">
-                <Stack sx={{ flexGrow: 0.4, padding: 1 }}>
-                    <Typography align="center"><b>Total: {total}</b></Typography>
-                </Stack>
-            </Stack>
+            <Grid container padding={1}>
+                    <Grid item width={125} sx={{ textAlign: 'left' }}>
+                        <Typography fontWeight={"bold"}>Total</Typography>
+                    </Grid>
+                {total.map((itens, index) => (
+                    <Grid item width={125} sx={{ textAlign: 'left' }}>
+                        <Typography>{itens}</Typography>
+                    </Grid>
+                ))}
+            </Grid>
         </Box>
     )
 }

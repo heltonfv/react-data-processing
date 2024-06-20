@@ -47,7 +47,7 @@ function App() {
   const [ type, setType ] = useState("table");
   const [ dimension, setDimension ] = useState(false);
 
-  const { fetchedData, isLoading, error } = useFetch(`/${selected}`);
+  const [ sumValue, setSumValue ] = useState([]);
 
   const handleDatasourceFieldChange = (event) => {
     setSelected(event.target.value);
@@ -180,7 +180,7 @@ function App() {
         justifyContent={"center"}
         alignItems={"center"}
         >
-        <Grid item xs={11} md={8}>
+        <Grid item xs={11} md={10}>
           <Stack spacing={2}>
             <Paper sx={{padding: 1}} elevation={1}>
               <Grid container spacing={1}>
@@ -235,7 +235,7 @@ function App() {
             </Paper>
 
             <Paper sx={{padding: 1}} elevation={2} >
-              {type === 'table' && <DynamicTable datasource={filteredData} />}
+              {type === 'table' && <DynamicTable datasource={filteredData} sumValue={sumValue} />}
               {type === 'graph' && <BarChart datasource={filteredData} dimension={dimension} />}
             </Paper>
 
