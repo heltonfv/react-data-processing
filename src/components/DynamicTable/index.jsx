@@ -21,10 +21,6 @@ export default function DynamicTable({datasource, sumValue}){
         };
     });
 
-    function isArrayNumeric(arr) {
-        return arr.every(Number.isFinite);
-    }
-
     let valorFinal = [];
     let valorSomado = _.sumBy(rows, 'soma');
 
