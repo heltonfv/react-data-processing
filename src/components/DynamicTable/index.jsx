@@ -20,8 +20,6 @@ export default function DynamicTable({datasource}){
         };
     });
 
-    const sum = _.sumBy(rows, 'soma');
-
     return (
         <Box>
             <DataGrid 
@@ -39,7 +37,7 @@ export default function DynamicTable({datasource}){
                 slotProps={
                     {
                         footer: {
-                            total: sum
+                            total: !isNaN(sum) ? sum : ''
                         }
                     }
                 }
