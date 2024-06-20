@@ -24,7 +24,6 @@ import {
 import { useState, useEffect } from "react";
 import DynamicTable from './components/DynamicTable';
 import { FaDatabase } from "react-icons/fa6";
-import StackedBarChart from './components/StackedBarChart';
 import BarChart from './components/BarChart';
 import _ from 'lodash';
 
