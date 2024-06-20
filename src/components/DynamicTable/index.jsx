@@ -6,6 +6,8 @@ import {
 } from '@mui/x-data-grid';
 import { ptBR } from '@mui/x-data-grid/locales';
 import { randomId } from "../../utils/randomId";
+import { CustomFooter } from './CustomFooter';
+import _ from 'lodash';
 
 export default function DynamicTable({datasource}){
     const keys = Object.keys(datasource[0]);
@@ -18,6 +20,8 @@ export default function DynamicTable({datasource}){
         };
     });
 
+    const sum = _.sumBy(rows, 'soma');
+
     return (
         <Box>
             <DataGrid 
@@ -27,6 +31,18 @@ export default function DynamicTable({datasource}){
                 pagination
                 density="compact"
                 getRowId={() => randomId()}
+                slots={
+                    {
+                        footer: CustomFooter
+                    }
+                }
+                slotProps={
+                    {
+                        footer: {
+                            total: sum
+                        }
+                    }
+                }
             />
       </Box>
     )
