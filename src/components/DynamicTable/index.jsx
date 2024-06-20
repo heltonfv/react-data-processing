@@ -21,12 +21,12 @@ export default function DynamicTable({datasource, sumValue}){
         };
     });
 
-    let valorFinal = [];
-    let valorSomado = _.sumBy(rows, 'soma');
+    // let valorFinal = [];
+    // let valorSomado = _.sumBy(rows, 'soma');
 
-    if(typeof valorSomado === 'number'){
-        valorFinal = valorSomado;
-    }
+    // if(typeof valorSomado === 'number'){
+    //     valorFinal = valorSomado;
+    // }
 
     return (
         <Box>
@@ -45,7 +45,7 @@ export default function DynamicTable({datasource, sumValue}){
                 slotProps={
                     {
                         footer: {
-                            total: [valorFinal]
+                            total: sumValue
                         }
                     }
                 }

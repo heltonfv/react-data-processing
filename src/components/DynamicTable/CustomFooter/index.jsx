@@ -12,9 +12,9 @@ export function CustomFooter({total}){
         >
 
             <Grid container padding={1}>
-                    <Grid item width={125} sx={{ textAlign: 'left' }}>
-                        <Typography fontWeight={"bold"}>Total</Typography>
-                    </Grid>
+                <Grid item width={125} sx={{ textAlign: 'left' }}>
+                    <Typography fontWeight={"bold"}>Total</Typography>
+                </Grid>
                 {total.map((itens, index) => (
                     <Grid item width={125} sx={{ textAlign: 'left' }}>
                         <Typography>{itens}</Typography>

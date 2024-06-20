@@ -117,23 +117,27 @@ function App() {
     };
 
     findLeaves(category);
-
+  
     const newJson = [];
+    let valorSomado = [];
 
     _.map(rows, (itens, index) => {
       let newObj = {detalhar: itens }
       _.map(columns, (iten, inde) => {
+        let valor = 0;
         newObj[iten] = null;
         _.map(columns, (ite, ind) => {
           if(category[index]?.[itens]?.[ind]?.[iten]){
             newObj[iten] = category[index]?.[itens]?.[ind]?.[iten];
+            valor += newObj[iten];
+            valorSomado.push(valor.toFixed(2));
           }
         });
       });
       newJson.push(newObj)
     });
-    
-    setDimension(true);
+
+    setSumValue(valorSomado);
     setFilteredData(newJson);
   }
 
