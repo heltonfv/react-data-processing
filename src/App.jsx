@@ -209,7 +209,7 @@ function App() {
                 </Grid>
                 <Grid item xs={12} md={3}>
                   <ViewBySelect
-                    disabledViewByField={disabledDetailField}
+                    disabledViewByField={disabledViewByField}
                     handleViewByFieldChange={handleViewByFieldChange}
                     selectedViewByField={selectedViewByField}
                     viewByField={viewByField}
