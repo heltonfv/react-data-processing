@@ -21,7 +21,7 @@ ChartJS.register(
     Legend
   );  
 
-export default function Chart({datasource, dimension}: any){
+export default function Chart({datasource, dimension}){
     const options = {
         plugins: {
         },
@@ -38,13 +38,13 @@ export default function Chart({datasource, dimension}: any){
     };
 
     const labels = _.map(datasource, 'ano');
-    let datasets:any = [];
+    let datasets = [];
     const {ano, ...exceptYear} = datasource[0];
     let newData = Object.keys(exceptYear)
 
-    newData.map((itens:any, index:any) => {
+    newData.map((itens, index) => {
         datasets.push({
-            data: datasource.map((iten:any, inde:any) => {
+            data: datasource.map((iten, inde) => {
                 return iten[itens]
             }),
             label: itens,
