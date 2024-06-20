@@ -41,7 +41,7 @@ export default function Chart({datasource, dimension}){
 
     const labels = _.map(datasource, key);
     let datasets = [];
-    const {ano, ...exceptYear} = datasource[0];
+    const {detalhar, ...exceptYear} = datasource[0];
     let newData = Object.keys(exceptYear)
 
     newData.map((itens, index) => {

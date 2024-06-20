@@ -121,7 +121,7 @@ function App() {
     const newJson = [];
 
     _.map(rows, (itens, index) => {
-      let newObj = {ano: itens }
+      let newObj = {detalhar: itens }
       _.map(columns, (iten, inde) => {
         newObj[iten] = null;
         _.map(columns, (ite, ind) => {
