@@ -1,8 +1,6 @@
 import { Box, Stack, Grid, Typography } from "@mui/material"
 
 export function CustomFooter({total}){
-    console.log("total")
-    console.log(total)
     return (
         <Box
             display="flex"
