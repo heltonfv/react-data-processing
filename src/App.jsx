@@ -27,6 +27,7 @@ import DatasourceSelect from './components/DatasourceSelect';
 import SumBySelect from './components/SumBySelect';
 import ViewBySelect from './components/ViewBySelect';
 import DetailBySelect from './components/DetailBySelect';
+import TypeViewRadioGroup from './components/TypeViewRadioGroup';
 
 function App() {
   const datasources = [
@@ -226,11 +227,13 @@ function App() {
 
               <Grid container>
                 <Grid item xs={12} md={6}>
-                  <RadioGroup row value={type} onChange={handleTypeChange}>
-                    <FormControlLabel disabled={disabledDetailField} value="table" control={<Radio />} label="Tabela" />
-                    <FormControlLabel disabled={disabledDetailField} value="graph" control={<Radio />} label="Gráfico" />
-                  </RadioGroup>
+                  <TypeViewRadioGroup
+                    type={type}
+                    handleTypeChange={handleTypeChange}
+                    disabledDetailField={disabledDetailField}
+                  />
                 </Grid>
+
                 <Grid item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: {xs: 'start', md: 'end'} }}>
                   <Button size="small" variant="contained" onClick={clearAllFields}>
                     Limpar
