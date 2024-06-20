@@ -250,7 +250,6 @@ function App() {
             <Paper sx={{padding: 1}} elevation={2} >
               {type === 'table' && <DynamicTable datasource={filteredData} />}
               {type === 'graph' && <BarChart datasource={filteredData} dimension={dimension} />}
-              {/* {type === 'stackedBarChart' && <StackedBarChart datasource={filteredData} />} */}
             </Paper>
 
           </Stack>

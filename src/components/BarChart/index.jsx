@@ -22,6 +22,8 @@ ChartJS.register(
   );  
 
 export default function Chart({datasource, dimension}){
+    const key = Object.keys(datasource[0])[0];
+
     const options = {
         plugins: {
         },
@@ -37,7 +39,7 @@ export default function Chart({datasource, dimension}){
         maintainAspectRatio : false,
     };
 
-    const labels = _.map(datasource, 'ano');
+    const labels = _.map(datasource, key);
     let datasets = [];
     const {ano, ...exceptYear} = datasource[0];
     let newData = Object.keys(exceptYear)
