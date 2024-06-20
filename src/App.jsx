@@ -23,6 +23,10 @@ import { FaDatabase } from "react-icons/fa6";
 import BarChart from './components/BarChart';
 import _ from 'lodash';
 import { useFetch } from "./hooks/useFetch";
+import DatasourceSelect from './components/DatasourceSelect';
+import SumBySelect from './components/SumBySelect';
+import ViewBySelect from './components/ViewBySelect';
+import DetailBySelect from './components/DetailBySelect';
 
 function App() {
   const datasources = [
@@ -189,44 +193,34 @@ function App() {
             <Paper sx={{padding: 1}} elevation={1}>
               <Grid container spacing={1}>
                 <Grid item xs={12} md={3}>
-                  <FormControl fullWidth size="small">
-                    <InputLabel>Fonte de dados</InputLabel>
-                    <Select onChange={handleDatasourceFieldChange} value={selected} fullWidth label="Fonte de dados" size="small">
-                      {datasources.map((item) => (
-                        <MenuItem value={item.name}>{item.title}</MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
+                  <DatasourceSelect 
+                    handleDatasourceFieldChange={handleDatasourceFieldChange}
+                    selected={selected}
+                    datasources={datasources}
+                  />
                 </Grid>
                 <Grid item xs={12} md={3}>
-                  <FormControl fullWidth size="small">
-                    <InputLabel>Somar</InputLabel>
-                    <Select onChange={handleSumFieldChange} value={selectedSumField} fullWidth label="Somar" size="small">
-                      {sumField?.map((item) => (
-                        <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
+                  <SumBySelect
+                    handleSumFieldChange={handleSumFieldChange}
+                    selectedSumField={selectedSumField}
+                    sumField={sumField}
+                  />
                 </Grid>
                 <Grid item xs={12} md={3}>
-                  <FormControl fullWidth size="small">
-                    <InputLabel>Visualizar por</InputLabel>
-                    <Select disabled={disabledViewByField} onChange={handleViewByFieldChange} value={selectedViewByField} fullWidth label="Visualizar por" size="small">
-                      {viewByField?.map((item) => (
-                        <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
+                  <ViewBySelect
+                    disabledViewByField={disabledDetailField}
+                    handleViewByFieldChange={handleViewByFieldChange}
+                    selectedViewByField={selectedViewByField}
+                    viewByField={viewByField}
+                  />
                 </Grid>
                 <Grid item xs={12} md={3}>
-                  <FormControl fullWidth size="small">
-                    <InputLabel>Detalhar por</InputLabel>
-                    <Select disabled={disabledDetailField} onChange={handleDetailFieldChange} value={selectedDetailField} fullWidth label="Detalhar por" size="small">
-                      {detailField?.map((item) => (
-                        <MenuItem value={item}>{item.toUpperCase()}</MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
+                  <DetailBySelect
+                    disabledDetailField={disabledDetailField}
+                    handleDetailFieldChange={handleDetailFieldChange}
+                    selectedDetailField={selectedDetailField}
+                    detailField={detailField}
+                  />
                 </Grid>
               </Grid>
 
