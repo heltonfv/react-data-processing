@@ -47,7 +47,6 @@ function sumAllValuesDetail(valuesCalculatedByDetail){
       detalhar: 'Total'
     };  
     const newJson = [];
-    let valorSomado = [];
 
     _.map(rows, (itens, index) => {
       let newObj = {detalhar: itens }
