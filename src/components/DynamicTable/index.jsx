@@ -20,13 +20,6 @@ export default function DynamicTable({datasource, sumValue}){
         };
     });
 
-    // let valorFinal = [];
-    // let valorSomado = _.sumBy(rows, 'soma');
-
-    // if(typeof valorSomado === 'number'){
-    //     valorFinal = valorSomado;
-    // }
-
     return (
         <Box>
             <DataGrid 
@@ -36,6 +29,7 @@ export default function DynamicTable({datasource, sumValue}){
                 pagination
                 density="compact"
                 getRowId={() => randomId()}
+                autoHeight
             />
       </Box>
     )
