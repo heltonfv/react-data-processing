@@ -206,7 +206,7 @@ function App() {
         justifyContent={"center"}
         alignItems={"center"}
         >
-        <Grid item xs={11} md={10}>
+        <Grid item xs={11} md={8}>
           <Stack spacing={2}>
             <Paper sx={{padding: 1}} elevation={1}>
               <Grid container spacing={1}>

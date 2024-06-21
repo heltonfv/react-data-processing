@@ -16,8 +16,7 @@ export default function DynamicTable({datasource, sumValue}){
     const columns = keys.map(function(item, index){
         return {
             field: item,
-            headerName: item.toUpperCase(),
-            width: 125
+            headerName: item.toUpperCase()
         };
     });
 
