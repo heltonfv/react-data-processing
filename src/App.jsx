@@ -19,6 +19,7 @@ import SumBySelect from './components/SumBySelect';
 import ViewBySelect from './components/ViewBySelect';
 import DetailBySelect from './components/DetailBySelect';
 import TypeViewRadioGroup from './components/TypeViewRadioGroup';
+import { calculateSumByGroup, sumAllValues } from './utils/handleViewByField';
 
 function App() {
   const datasources = [
@@ -66,24 +67,10 @@ function App() {
   const handleViewByFieldChange = (event) => {
     setSelectedViewByField(event.target.value);
 
-    const groups = _.groupBy(data, event.target.value);
+    let valuesCalculatedByGroup = calculateSumByGroup(data, event.target.value, selectedSumField);
 
-    const sumByGroup = _.map(groups, (itens, index) => {
-      return {
-        visualizacao: index,
-        soma: _.sumBy(itens, selectedSumField)
-      };
-    });
-
-    function sumAllValues(sumByGroup){
-      sumByGroup.push({
-        visualizacao: 'Total',
-        soma: _.sumBy(sumByGroup, 'soma')
-      });
-    }
-
-    sumAllValues(sumByGroup);
-    setFilteredData(sumByGroup);
+    sumAllValues(valuesCalculatedByGroup);
+    setFilteredData(valuesCalculatedByGroup);
     setDisabledDetailField(false);
   }
 
