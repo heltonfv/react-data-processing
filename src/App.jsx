@@ -75,6 +75,14 @@ function App() {
       };
     });
 
+    function sumAllValues(sumByGroup){
+      sumByGroup.push({
+        visualizacao: 'Total',
+        soma: _.sumBy(sumByGroup, 'soma')
+      });
+    }
+
+    sumAllValues(sumByGroup);
     setFilteredData(sumByGroup);
     setDisabledDetailField(false);
   }
@@ -117,7 +125,10 @@ function App() {
     };
 
     findLeaves(category);
-  
+
+    let sums = {
+      detalhar: 'Total'
+    };  
     const newJson = [];
     let valorSomado = [];
 
@@ -130,12 +141,23 @@ function App() {
           if(category[index]?.[itens]?.[ind]?.[iten]){
             newObj[iten] = category[index]?.[itens]?.[ind]?.[iten];
             valor += newObj[iten];
-            valorSomado.push(valor.toFixed(2));
           }
         });
       });
       newJson.push(newObj)
     });
+
+    newJson.forEach(item => {
+      for (const key in item) {
+        if (key !== "detalhar" && item.hasOwnProperty(key)) {
+          if (item[key] !== null) {
+            sums[key] = (sums[key] || 0) + item[key];
+          }
+        }
+      }
+    });
+    
+    newJson.push(sums)
 
     setSumValue(valorSomado);
     setFilteredData(newJson);

@@ -37,18 +37,6 @@ export default function DynamicTable({datasource, sumValue}){
                 pagination
                 density="compact"
                 getRowId={() => randomId()}
-                slots={
-                    {
-                        footer: CustomFooter
-                    }
-                }
-                slotProps={
-                    {
-                        footer: {
-                            total: sumValue
-                        }
-                    }
-                }
             />
       </Box>
     )
