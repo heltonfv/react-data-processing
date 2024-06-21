@@ -20,6 +20,7 @@ import ViewBySelect from './components/ViewBySelect';
 import DetailBySelect from './components/DetailBySelect';
 import TypeViewRadioGroup from './components/TypeViewRadioGroup';
 import { calculateSumByGroup, sumAllValues } from './utils/handleViewByField';
+import { calculateSumByDetail, sumAllValuesDetail } from './utils/handleDetailByField';
 
 function App() {
   const datasources = [
@@ -77,77 +78,10 @@ function App() {
   const handleDetailFieldChange = (event) => {
     setSelectedDetailField(event.target.value);
 
-    const year = _.groupBy(data, event.target.value);
+    let valuesCalculatedByDetail = calculateSumByDetail(data, event.target.value, selectedSumField, selectedViewByField);
+    let totalValue = sumAllValuesDetail(valuesCalculatedByDetail)
 
-    const category = _.map(year, (itens, index) => {
-      const grouped = _.groupBy(itens, selectedViewByField);
-        return {
-          [index]: _.map(grouped, (iten, i) => {
-          return {
-            [i]: _.sumBy(iten, selectedSumField)
-          }
-        })
-      }      
-    });
-
-    let columns = [];
-    let rows = [];
-
-    //get all rows
-    _.map(category, (itens, index) => {
-      rows.push(Object.keys(itens)[0])
-    })
-
-    //get all columns
-    const findLeaves = (category) => {
-      if (_.isObject(category)) {
-        _.forEach(category, (value, key) => {
-          if (_.isObject(value)) {
-            findLeaves(value);
-          } else {
-            columns.push(key);
-          }
-        });
-      }
-    };
-
-    findLeaves(category);
-
-    let sums = {
-      detalhar: 'Total'
-    };  
-    const newJson = [];
-    let valorSomado = [];
-
-    _.map(rows, (itens, index) => {
-      let newObj = {detalhar: itens }
-      _.map(columns, (iten, inde) => {
-        let valor = 0;
-        newObj[iten] = null;
-        _.map(columns, (ite, ind) => {
-          if(category[index]?.[itens]?.[ind]?.[iten]){
-            newObj[iten] = category[index]?.[itens]?.[ind]?.[iten];
-            valor += newObj[iten];
-          }
-        });
-      });
-      newJson.push(newObj)
-    });
-
-    newJson.forEach(item => {
-      for (const key in item) {
-        if (key !== "detalhar" && item.hasOwnProperty(key)) {
-          if (item[key] !== null) {
-            sums[key] = (sums[key] || 0) + item[key];
-          }
-        }
-      }
-    });
-    
-    newJson.push(sums)
-
-    setSumValue(valorSomado);
-    setFilteredData(newJson);
+    setFilteredData(totalValue);
   }
 
 
